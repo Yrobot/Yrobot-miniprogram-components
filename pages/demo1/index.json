@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "slideView",
+    "usingComponents": {
+        "slide-view": "/components/slide-view/index"
+    }
+}

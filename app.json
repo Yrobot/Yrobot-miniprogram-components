@@ -1,0 +1,11 @@
+{
+  "pages":[
+    "pages/demo1/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Yrobot-Component",
+    "navigationBarTextStyle":"black"
+  }
+}
