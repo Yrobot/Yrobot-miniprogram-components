@@ -1,15 +1,13 @@
 <!-- index.wxml -->
 <view class="container">
-  <slide-view width="750" height="110" slide-width="300" slide-out>
-    <view slot="left" class="left">
-    </view>
-    <view slot="right" class="right">
-    </view>
-  </slide-view>
-  <slide-view width="750" height="110" slide-width="300" right-click-noclose >
-    <view slot="left" class="left">
-    </view>
-    <view slot="right" class="right">
-    </view>
-  </slide-view>
+  <view class="listView">
+    <slide-view wx:for="{{dataList}}" wx:if="{{item.show}}" wx:key="{{index}}" width="750" height="110" slide-width="300" slide-out>
+      <view slot="left" class="left">{{item.data}}</view>
+      <view slot="right" class="right">
+        <view class="edit" data-index="{{index}}">编辑</view>
+        <view class="delete" data-index="{{index}}" bind:tap="deleteItem">删除</view>
+      </view>
+    </slide-view>
+  </view>
+  <toast-view id="YrobotToast"></toast-view>
 </view>

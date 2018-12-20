@@ -1,0 +1,4 @@
+<!-- Yrobot-toast/Yrobot-toast.wxml -->
+<view class="YrobotToastHolder" animation="{{animationData}}">
+  <view class="YrobotToast" style="text-align: {{textAlign}};"><text>{{text}}</text></view>
+</view>

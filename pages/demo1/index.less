@@ -1,10 +1,34 @@
+.listView{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
 .left{
     width: 750rpx; 
     height: 110rpx;
+    line-height: 110rpx;
     background-color: #0396e4;
+    box-sizing: border-box;
+    padding: 0 20rpx;
 }
 .right{
     width: 300rpx;
     height: 110rpx;
-    background-color: #68cf01;
+    line-height: 110rpx;
+    display: flex;
+    text-align: center;
+    .edit{
+        flex: 5;
+        height: 100%;
+        background-color: rgb(96, 197, 38);
+        color: #fff;
+    }
+    .delete{
+        flex: 4;
+        height: 100%;
+        background-color: #df1f1a;
+        color: #fff;
+    }
 }

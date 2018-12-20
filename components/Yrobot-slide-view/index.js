@@ -67,7 +67,7 @@ Component({
    * 组件的方法列表
    */
   ready() {
-    this.updateRight()
+    this.updateRight();
   },
   methods: {
     updateRight() {

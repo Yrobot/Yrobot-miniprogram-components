@@ -1,0 +1,18 @@
+.YrobotToastHolder{
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  bottom: 400rpx;
+  opacity: 0;
+}
+.YrobotToast{
+  position: absolute;
+  background:rgba(0, 0, 0, 0.7);
+  padding: 25rpx 40rpx;
+  font-size:26rpx;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  max-width: 500rpx;
+  transform: translate(-50%,0);
+}
