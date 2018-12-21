@@ -51,7 +51,6 @@ Page({
   deleteItem(e) {
     const index = e.currentTarget.dataset.index;
     let dataList = this.data.dataList;
-    console.log(index);
 
     dataList[index].show = false;
     this.setData({

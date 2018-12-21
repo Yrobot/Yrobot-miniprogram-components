@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "popup-view": "../Yrobot-popup/index"
+  }
 }

@@ -14,9 +14,7 @@
   <view class="allPop bottom">
     <slot name="bottom"></slot>
   </view>
-  <view class="allPop floatHolder" style="left:{{left}}; right:{{right}}; top:{{top}}; bottom:{{bottom}};">
-    <view class="float">
-      <slot name="float"></slot>
-    </view>
+  <view class="allPop float" style="left:{{0}}; right:{{0}}; top:{{top}}; bottom:{{bottom}};">
+    <slot name="float"></slot>
   </view>
 </view>

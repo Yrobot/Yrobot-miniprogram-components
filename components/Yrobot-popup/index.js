@@ -24,14 +24,14 @@ Component({
       value: "rgba(37, 37, 37, 0.6)",
     },
     // slot为float时，一下4个属性用来设置弹窗位置（可用%、rpx）
-    left: {
-      type: String,
-      value: "auto"
-    },
-    right: {
-      type: String,
-      value: "auto"
-    },
+    // left: {
+    //   type: String,
+    //   value: "auto"
+    // },
+    // right: {
+    //   type: String,
+    //   value: "auto"
+    // },
     top: {
       type: String,
       value: "auto"

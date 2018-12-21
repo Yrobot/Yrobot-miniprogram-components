@@ -12,9 +12,9 @@
   <view class="popHolder">
     <view class="innerPop">
       <toast-view id="YrobotToast"></toast-view>
-      <popup-view>
+      <!-- <popup-view>
         <view class="popText" slot="left"></view>
-      </popup-view>
+      </popup-view> -->
     </view>
   </view>
 </view>

@@ -2,11 +2,10 @@
   position: absolute;
   width: 100%;
   left: 50%;
-  bottom: 400rpx;
   opacity: 0;
-  z-index: 1100;
 }
 .YrobotToast{
+  z-index: 1100;
   position: absolute;
   background:rgba(0, 0, 0, 0.7);
   padding: 25rpx 40rpx;

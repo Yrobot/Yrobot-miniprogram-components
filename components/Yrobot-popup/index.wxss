@@ -47,19 +47,8 @@
   left: 0;
   bottom: 0;
 }
-.floatHolder{
+.float{
   position: absolute;
   width: 100%;
-}
-.floatHolder .float{
-  position: absolute;
-  transform: translate(-50%,-50%);
-}
-
-
-.inner{
-  position: relative;
-  height: 100%;
-  width: 300px;
-  background-color: rgb(231, 170, 79);
+  left: 0;
 }

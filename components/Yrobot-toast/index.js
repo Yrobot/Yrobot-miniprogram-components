@@ -1,6 +1,10 @@
 // Yrobot-toast/Yrobot-toast.js
 // Yrobot设计实现toast组件，请配合Yrobot-layout使用
 // 时间：2018年12月20日 19:40:38
+
+// 存在bugs: 
+// 1.使用Yrobot-popup支持之后，无渐入渐出效果2018年12月22日 01:19:27
+
 Component({
   /**
    * 组件的属性列表
@@ -9,12 +13,12 @@ Component({
     //toast的文字对齐方式
     textAlign: {
       type: String,
-      value: 'left'
+      value: 'center'
     },
     //toast的展示文字
     text: {
       type: String,
-      value: 'Yrobot toast'
+      value: ''
     },
     //toast停留时间 ms
     showTime: {
@@ -27,7 +31,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    animationData: {}
+    animationData: {},
+    isShow: false,
   },
 
   /**
@@ -66,8 +71,17 @@ Component({
         text,
         showTime,
         textAlign,
+        isShow: true,
         animationData: animation.export()
       })
+      setTimeout(() => {
+        this.setData({
+          text: '',
+          textAlign: 'center',
+          showTime: 3000,
+          isShow: false,
+        })
+      }, 1000 + showTime);
     },
   }
 })

@@ -1,4 +1,8 @@
 <!-- Yrobot-toast/Yrobot-toast.wxml -->
-<view class="YrobotToastHolder" animation="{{animationData}}">
-  <view class="YrobotToast" style="text-align: {{textAlign}};"><text>{{text}}</text></view>
-</view>
+<popup-view coverOn="{{false}}" bottom="400rpx">
+  <view slot="float" wx:if="{{isShow}}" class="YrobotToastHolder" animation="{{animationData}}">
+    <view class="YrobotToast" style="text-align: {{textAlign}};">
+      <text>{{text}}</text>
+    </view>
+  </view>
+</popup-view>
