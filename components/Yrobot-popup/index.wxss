@@ -59,7 +59,7 @@
 
 .inner{
   position: relative;
-  height: 100px;
-  width: 100px;
+  height: 100%;
+  width: 300px;
   background-color: rgb(231, 170, 79);
 }

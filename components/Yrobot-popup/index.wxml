@@ -2,6 +2,7 @@
 <view class="popupHolder">
   <view class="popCover" wx:if="{{coverOn}}" style="background-color:{{coverColor}};"></view>
   <view class="allPop left">
+    <!-- <view class="inner"></view> -->
     <slot name="left"></slot>
   </view>
   <view class="allPop right">
