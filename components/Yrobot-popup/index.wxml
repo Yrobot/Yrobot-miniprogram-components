@@ -1,0 +1,21 @@
+<!-- Yrobot-popup/Yrobot-popup.wxml -->
+<view class="popupHolder">
+  <view class="popCover" wx:if="{{coverOn}}" style="background-color:{{coverColor}};"></view>
+  <view class="allPop left">
+    <slot name="left"></slot>
+  </view>
+  <view class="allPop right">
+    <slot name="right"></slot>
+  </view>
+  <view class="allPop top">
+    <slot name="top"></slot>
+  </view>
+  <view class="allPop bottom">
+    <slot name="bottom"></slot>
+  </view>
+  <view class="allPop floatHolder" style="left:{{left}}; right:{{right}}; top:{{top}}; bottom:{{bottom}};">
+    <view class="float">
+      <slot name="float"></slot>
+    </view>
+  </view>
+</view>

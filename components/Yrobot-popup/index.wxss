@@ -1,0 +1,65 @@
+.popupHolder{ 
+  /* Zindex为auto在Zindex=1之下，不会覆盖内容层 */
+  position: absolute; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: auto;
+}
+
+.popCover{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(37, 37, 37, 0.6);
+  z-index: 1000;
+}
+
+.allPop{
+  position: absolute;
+  z-index: 1010;
+}
+
+.left{
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.right{
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+.top{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.bottom{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+.floatHolder{
+  position: absolute;
+  width: 100%;
+}
+.floatHolder .float{
+  position: absolute;
+  transform: translate(-50%,-50%);
+}
+
+
+.inner{
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(231, 170, 79);
+}

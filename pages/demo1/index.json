@@ -2,6 +2,7 @@
     "navigationBarTitleText": "slideView",
     "usingComponents": {
         "slide-view": "/components/Yrobot-slide-view/index",
+        "popup-view": "/components/Yrobot-popup/index",
         "toast-view": "/components/Yrobot-toast/index"
     }
 }
