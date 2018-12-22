@@ -32,7 +32,6 @@ Component({
    */
   data: {
     animationData: {},
-    isShow: false,
   },
 
   /**
@@ -79,7 +78,6 @@ Component({
           text: '',
           textAlign: 'center',
           showTime: 3000,
-          isShow: false,
         })
       }, 1000 + showTime);
     },
