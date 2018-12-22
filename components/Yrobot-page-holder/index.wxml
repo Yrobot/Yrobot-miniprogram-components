@@ -1,0 +1,10 @@
+<!-- Yrobot-layout/Yrobot-layout.wxml -->
+<view class="YrobotPageHolder">
+    <view class="YrobotContentHolder">
+        <slot name="contentHolder"></slot>
+    </view>
+    <view class="YrobotPopHolder">
+        <slot name="popHolder"></slot>
+    </view>
+</view>
+
