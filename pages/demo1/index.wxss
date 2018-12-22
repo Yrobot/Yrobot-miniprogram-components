@@ -7,6 +7,14 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
+.popHolder {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: auto;
+}
 .left {
   width: 750rpx;
   height: 110rpx;
@@ -33,12 +41,4 @@
   height: 100%;
   background-color: #df1f1a;
   color: #fff;
-}
-.popHolder {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: auto;
 }

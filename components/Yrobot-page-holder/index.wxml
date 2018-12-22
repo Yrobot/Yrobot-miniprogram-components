@@ -8,3 +8,27 @@
     </view>
 </view>
 
+<!-- 
+使用page-holder时，使用页面的两个接入slot的view的样式建议如下
+特别注意 标* 
+.contentHolder{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.popHolder{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    *z-index: auto;  不可设置为具体数值，否则会遮蔽整个content层，内部标签的zindex>1，便可以有弹窗效果
+} 
+
+具体参考demo1的index.wxml
+-->
+
