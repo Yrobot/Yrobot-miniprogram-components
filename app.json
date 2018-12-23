@@ -4,6 +4,7 @@
   ],
   "window":{
     "navigationBarTitleText": "Yrobot-Component",
+    "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   }
 }

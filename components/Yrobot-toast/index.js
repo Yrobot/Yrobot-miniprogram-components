@@ -51,6 +51,9 @@ Component({
      *            }
      */
     showToast(param) {
+      if (this.timeOutID) {
+        clearTimeout(this.timeOutID);
+      }
       const { text, showTime, textAlign } = {
         ...(this.data),
         ...param
@@ -73,7 +76,7 @@ Component({
         isShow: true,
         animationData: animation.export()
       })
-      setTimeout(() => {
+      this.timeOutID = setTimeout(() => {
         this.setData({
           text: '',
           textAlign: 'center',

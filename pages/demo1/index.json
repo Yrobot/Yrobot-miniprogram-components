@@ -4,6 +4,7 @@
         "slide-view": "/components/Yrobot-slide-view/index",
         "popup-view": "/components/Yrobot-popup/index",
         "page-holder": "/components/Yrobot-page-holder/index",
+        "content-layout": "/components/Yrobot-content-layout/index",
         "toast-view": "/components/Yrobot-toast/index"
     }
 }

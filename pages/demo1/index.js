@@ -6,7 +6,16 @@ Page({
       //   data: '',
       //   show: true,
       // }
-    ]
+    ],
+    setStatus: {
+      // BGColor: 'rgb(82, 81, 81);',
+    },
+    setNavigation: {
+
+    },
+    setTab: {
+
+    },
   },
   //options(Object)
   onLoad: function (options) {

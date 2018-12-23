@@ -1,15 +1,17 @@
 <!-- index.wxml -->
 <page-holder>
-  <view class="contentHolder" slot="contentHolder">
-    <slide-view wx:for="{{dataList}}" wx:if="{{item.show}}" wx:key="{{index}}" width="750" height="110" slide-width="300" slide-out>
-      <view slot="left" class="left">{{item.data}}</view>
-      <view slot="right" class="right">
-        <view class="edit" data-index="{{index}}">编辑</view>
-        <view class="delete" data-index="{{index}}" bind:tap="deleteItem">删除</view>
-      </view>
-    </slide-view>
-  </view>
-  <view class="popHolder"  slot="popHolder">
+  <content-layout slot="contentHolder" setStatus="{{setStatus}}">
+    <view class="contentWindow" slot="contentWindow">
+      <slide-view wx:for="{{dataList}}" wx:if="{{item.show}}" wx:key="{{index}}" width="750" height="110" slide-width="300" slide-out>
+        <view slot="left" class="left">{{item.data}}</view>
+        <view slot="right" class="right">
+          <view class="edit" data-index="{{index}}">编辑</view>
+          <view class="delete" data-index="{{index}}" bind:tap="deleteItem">删除</view>
+        </view>
+      </slide-view>
+    </view>
+  </content-layout>
+  <view class="popHolder" slot="popHolder">
     <toast-view id="YrobotToast"></toast-view>
     <!-- <popup-view>
         <view class="popText" slot="left"></view>
