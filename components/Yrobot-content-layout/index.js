@@ -2,8 +2,7 @@
 // Yrobot设计实现layout组件，作为整个页面的内容层的layout
 // 主要用于使用自定义tabBar和navigationBar的情况，即在app.json中设置"navigationStyle": "custom"
 // 从上到下包含statusBar、navigationBar、pageWindow、tabBar
-// 时间：2018年12月23日 12:53:39
-// todo: 1.navigationBar和tabBar的显隐动画与API
+// 时间：2018年12月23日 12:53:39  
 const statusBarH = wx.getSystemInfoSync().statusBarHeight;
 Component({
   options: {
@@ -72,7 +71,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    animationData: {},
+    tabBarAnimation: {},
     statusBar: {
       _height: statusBarH,
       BGColor: '',
@@ -86,6 +85,8 @@ Component({
       _height: 0,
       placeHold: true,
     },
+    tabBarShow: true,
+    // tabBarHideY: 0,
   },
 
   /**
@@ -120,6 +121,26 @@ Component({
         })
       }).exec()
     },
-
+    /**
+     * @description 带动画控制tabBar的显示和隐藏
+     * @author Yrobot
+     * @date 2018-12-24
+     * @param {*} show [Boolen] true=展示 / false=隐藏
+     */
+    setTabBar(show) {
+      const now = this.data.tabBarShow;
+      if (now == show)
+        return;
+      var animation = wx.createAnimation({
+      })
+      animation.translateY((!show ? this.data.tabBar._height : 0)).step({
+        duration: 500,
+        timingFunction: 'ease',
+      })
+      this.setData({
+        tabBarShow: show,
+        tabBarAnimation: animation.export()
+      })
+    },
   }
 })

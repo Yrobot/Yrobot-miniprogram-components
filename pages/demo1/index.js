@@ -9,12 +9,13 @@ Page({
     ],
     setStatus: {
       // BGColor: 'rgb(82, 81, 81);',
+      placeHold: false
     },
     setNavigation: {
-
+      placeHold: false
     },
     setTab: {
-
+      placeHold: false
     },
   },
   //options(Object)
@@ -30,10 +31,14 @@ Page({
     })
   },
   onReady: function () {
-
+    if (!this.tempScrollY) {
+      this.tempScrollY = 0;
+    }
   },
   onShow: function () {
-
+    setTimeout(() => {
+      this.showToast("onshow")
+    }, 500);
   },
   onHide: function () {
 
@@ -73,5 +78,13 @@ Page({
       showTime: 1000,
       textAlign: 'canter'
     })
+  },
+  scrollTab(y) {
+    this.selectComponent('#YrobotLayout').setTabBar(y < 0)
+  },
+  windowScroll(e) {
+    const { scrollTop } = e.detail;
+    this.scrollTab(scrollTop - this.tempScrollY);
+    this.tempScrollY = scrollTop;
   },
 });

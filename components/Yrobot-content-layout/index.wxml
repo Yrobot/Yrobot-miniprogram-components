@@ -12,7 +12,7 @@
     <view class="navigationBarHolder" style="top:{{statusBar._height}}px;">
         <slot name="navigationBar"></slot>
     </view>
-    <view class="tabBarHolder">
+    <view class="tabBarHolder" animation="{{tabBarAnimation}}">
         <slot name="tabBar"></slot>
     </view>
 </view>

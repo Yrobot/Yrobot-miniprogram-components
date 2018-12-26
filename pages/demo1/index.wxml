@@ -1,7 +1,9 @@
 <!-- index.wxml -->
 <page-holder>
-  <content-layout slot="contentHolder" setStatus="{{setStatus}}">
-    <view class="contentWindow" slot="contentWindow">
+  <content-layout slot="contentHolder" id="YrobotLayout" setStatus="{{setStatus}}" setNavigation="{{setNavigation}}" setTab="{{setTab}}">
+    <!-- <view class="inner" slot="navigationBar"></view>
+    <view class="inner" slot="tabBar"></view>
+    <scroll-view class="contentWindow" slot="contentWindow" scroll-y bindscroll="windowScroll">
       <slide-view wx:for="{{dataList}}" wx:if="{{item.show}}" wx:key="{{index}}" width="750" height="110" slide-width="300" slide-out>
         <view slot="left" class="left">{{item.data}}</view>
         <view slot="right" class="right">
@@ -9,12 +11,16 @@
           <view class="delete" data-index="{{index}}" bind:tap="deleteItem">删除</view>
         </view>
       </slide-view>
-    </view>
+    </scroll-view> -->
+    <map class="myMap" slot="contentWindow"></map>
   </content-layout>
   <view class="popHolder" slot="popHolder">
+    <!-- <cover-view class="holder">
+      <cover-view class="cover"></cover-view>
+    </cover-view> -->
     <toast-view id="YrobotToast"></toast-view>
     <!-- <popup-view>
-        <view class="popText" slot="left"></view>
-      </popup-view> -->
+      <view class="popText" slot="left"></view>
+    </popup-view> -->
   </view>
 </page-holder>

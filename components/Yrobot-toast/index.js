@@ -1,9 +1,7 @@
 // Yrobot-toast/Yrobot-toast.js
-// Yrobot设计实现toast组件，请配合Yrobot-layout使用
+// Yrobot设计实现toast组件，请配合Yrobot-page-holdert使用
 // 时间：2018年12月20日 19:40:38
 
-// 存在bugs: 
-// 1.使用Yrobot-popup支持之后，无渐入渐出效果2018年12月22日 01:19:27
 
 Component({
   /**
