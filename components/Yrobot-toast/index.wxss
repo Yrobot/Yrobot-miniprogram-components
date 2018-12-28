@@ -1,12 +1,11 @@
-.YrobotToastHolder{
+.toastHolder{
+  flex: none;
   position: absolute;
-  width: 100%;
-  left: 50%;
+  bottom: 0;
+  z-index: 1100;
   opacity: 0;
 }
 .YrobotToast{
-  z-index: 1100;
-  position: absolute;
   background:rgba(0, 0, 0, 0.7);
   padding: 25rpx 40rpx;
   font-size:26rpx;
@@ -14,5 +13,4 @@
   color:rgba(255,255,255,1);
   text-align: center;
   max-width: 500rpx;
-  transform: translate(-50%,0);
 }

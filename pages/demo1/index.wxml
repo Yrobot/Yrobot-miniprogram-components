@@ -12,7 +12,7 @@
         </view>
       </slide-view>
     </scroll-view> -->
-    <map class="myMap" slot="contentWindow"></map>
+    <!-- <map class="myMap" slot="contentWindow"></map> -->
   </content-layout>
   <view class="popHolder" slot="popHolder">
     <!-- <cover-view class="holder">

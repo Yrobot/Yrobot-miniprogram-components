@@ -30,6 +30,7 @@ Component({
    */
   data: {
     animationData: {},
+    isShow: false,
   },
 
   /**
@@ -77,10 +78,11 @@ Component({
       this.timeOutID = setTimeout(() => {
         this.setData({
           text: '',
+          isShow: false,
           textAlign: 'center',
           showTime: 3000,
         })
-      }, 1000 + showTime);
+      }, 1100 + showTime);
     },
   }
 })

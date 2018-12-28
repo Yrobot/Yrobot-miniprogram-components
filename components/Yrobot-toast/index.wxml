@@ -1,9 +1,8 @@
 <!-- Yrobot-toast/Yrobot-toast.wxml -->
 <popup-view coverOn="{{false}}" bottom="400rpx">
-  <view slot="float" class="YrobotToastHolder" animation="{{animationData}}">
-    <view class="YrobotToast" style="text-align: {{textAlign}};">
+  <view class="toastHolder" slot="float" animation="{{animationData}}">
+    <view class="YrobotToast" style="text-align:{{textAlign}};display:{{isShow?'block':'none'}};">
       <text>{{text}}</text>
     </view>
   </view>
 </popup-view>
-
