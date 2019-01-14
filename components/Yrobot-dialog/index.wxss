@@ -1,0 +1,27 @@
+.Yrobotdialog {
+  position: relative;
+  width: 600rpx;
+  transform: translate(0, 50%);
+  opacity: 0;
+}
+.Yrobotdialog .infoBox {
+  width: 100%;
+  padding: 60rpx 50rpx;
+  box-sizing: border-box;
+}
+.Yrobotdialog .infoBox .titleBox {
+  width: 100%;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+}
+.Yrobotdialog .infoBox .contentBox {
+  width: 100%;
+  font-size: 1.0em;
+  font-weight: normal;
+  text-align: center;
+}
+.Yrobotdialog .buttonArea {
+  width: 100%;
+  position: relative;
+}

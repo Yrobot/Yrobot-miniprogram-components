@@ -1,0 +1,7 @@
+<!-- Yrobot-toast/Yrobot-toast.wxml -->
+<popup-view id="_YrobotSlideBar_popup" bind:coverClose="{{coverClose?'hide':''}}">
+  <view class="YrobotSlideBar" style="display:{{_slideBarOn?'block':'none'}};" animation="{{slideBarAnimation}}" slot="left">
+    <view class="statusBarBG" wx:if="{{statusBGOn}}" style="height:{{statusBarHeight}}px;"></view>
+    <slot></slot>
+  </view>
+</popup-view>

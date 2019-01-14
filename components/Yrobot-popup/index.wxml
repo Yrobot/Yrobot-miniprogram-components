@@ -1,6 +1,6 @@
 <!-- Yrobot-popup/Yrobot-popup.wxml -->
 <view class="popupHolder">
-  <view class="popCover" wx:if="{{coverOn}}" style="background-color:{{coverColor}};"></view>
+  <view class="popCover" wx:if="{{coverOn}}" bind:tap="tapCover" style="display:{{_BGon?'block':'none'}};background-color:{{coverColor}};" animation="{{BGanimation}}"></view>
   <view class="allPop left">
     <slot name="left"></slot>
   </view>

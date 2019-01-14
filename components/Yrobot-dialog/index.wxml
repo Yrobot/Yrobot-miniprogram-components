@@ -1,0 +1,16 @@
+<!-- Yrobot-toast/Yrobot-toast.wxml -->
+<popup-view bottom="50%" id="_YrobotDialog_popup" bind:coverClose="{{coverClose?'hide':''}}">
+  <view class="Yrobotdialog" style="display:{{_dialogOn?'block':'none'}};background-color:{{BGColor}};" animation="{{dialogAnimation}}" slot="float">
+    <view class="infoBox">
+      <view class="titleBox">
+        <slot name="title"></slot>
+      </view>
+      <view class="contentBox">
+        <slot name="content"></slot>
+      </view>
+    </view>
+    <view class="buttonArea" catch:tap="hide">
+      <slot name="button"></slot>
+    </view>
+  </view>
+</popup-view>
