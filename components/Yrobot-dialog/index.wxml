@@ -9,7 +9,7 @@
         <slot name="content"></slot>
       </view>
     </view>
-    <view class="buttonArea" catch:tap="hide">
+    <view class="buttonArea" catch:tap="tryClose">
       <slot name="button"></slot>
     </view>
   </view>

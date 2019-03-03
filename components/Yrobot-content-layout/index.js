@@ -3,6 +3,8 @@
 // 主要用于使用自定义tabBar和navigationBar的情况，即在app.json中设置"navigationStyle": "custom"
 // 从上到下包含statusBar、navigationBar、pageWindow、tabBar
 // 时间：2018年12月23日 12:53:39  
+// bug：
+// 1. 由于小程序获取元素高度不准确，所以采用占位元素高度先使用用户传入height，再使用计算后的_height。否则有些机型会有高度误差
 const statusBarH = wx.getSystemInfoSync().statusBarHeight;
 Component({
   options: {
@@ -34,6 +36,7 @@ Component({
     //navigationBar的style
     // {
     //  placeHold //是否在contentWindow层占位，即控制contentWindow的大小
+    //  height // 默认占位高度
     // }
     setNavigation: {
       type: Object,
@@ -51,6 +54,7 @@ Component({
     //tabBar的style
     // {
     //  placeHold //是否在contentWindow层占位，即控制contentWindow的大小
+    //  height // 默认占位高度
     // }
     setTab: {
       type: Object,
@@ -80,10 +84,12 @@ Component({
     navigationBar: {
       _height: 0,
       placeHold: true,
+      height: 0, //px,用于初始占位
     },
     tabBar: {
       _height: 0,
       placeHold: true,
+      height: 0, //px,用于初始占位
     },
     tabBarShow: true,
     // tabBarHideY: 0,
@@ -102,6 +108,8 @@ Component({
      * @date 2018-12-23
      */
     updateHeight() {
+      // if (this.data.navigationBar.height && this.data.tabBar.height)
+      //   return;
       const that = this;
       const query = wx.createSelectorQuery().in(this)
       query.select('.navigationBarHolder').boundingClientRect(function (res) {
@@ -111,6 +119,7 @@ Component({
             _height: res.height
           }
         })
+        that._navigationBarH = res.height;
       }).exec()
       query.select('.tabBarHolder').boundingClientRect(function (res) {
         that.setData({
@@ -119,6 +128,7 @@ Component({
             _height: res.height
           }
         })
+        that._tabBarH = res.height;
       }).exec()
     },
     /**

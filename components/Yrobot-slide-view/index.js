@@ -32,7 +32,12 @@ Component({
       type: Boolean,
       value: false
     },
-    //  右侧点击事件是否会自动关闭滑块
+    //  right侧点击事件是否会自动关闭滑块
+    rightClickNoclose: {
+      type: Boolean,
+      value: false
+    },
+    //  left侧点击事件是否会自动关闭滑块
     rightClickNoclose: {
       type: Boolean,
       value: false
@@ -67,10 +72,10 @@ Component({
    * 组件的方法列表
    */
   ready() {
-    this.updateRight();
+    this._updateRight();
   },
   methods: {
-    updateRight() {
+    _updateRight() {
       // 获取右侧滑动显示区域的宽度 将rpx转换为px 用于滑动自动完成的判断（因为x单位是px）
       const that = this
       const query = wx.createSelectorQuery().in(this)
@@ -84,7 +89,7 @@ Component({
       }).exec()
     },
     onTouchStart(e) { //e.changedTouches[0]：触发事件时，手指的位置，相对于整个页面左上角的位置（client时相对于视口左上角的位置）
-      this._startX = e.changedTouches[0].pageX
+      this._startX = e.changedTouches[0].pageX;
     },
     //  当滑动范围超过阈值自动完成剩余滑动
     onTouchEnd(e) {
@@ -128,9 +133,14 @@ Component({
         x: 0
       })
     },
-    //  尝试关闭slide
-    tryToCloseSlide() {
+    //  点击right部分，尝试关闭slide
+    clickRCloseSlide() {
       if (!this.data.rightClickNoclose)
+        this.closeSlide();
+    },
+    //  点击left部分，尝试关闭slide
+    clickLCloseSlide() {
+      if (!this.data.leftClickNoclose)
         this.closeSlide();
     },
   }

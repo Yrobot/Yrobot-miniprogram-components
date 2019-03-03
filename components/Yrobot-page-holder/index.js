@@ -11,7 +11,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    //页面距离底部的距离，常用于适配键盘弹起的情况
+    bottom: {
+      type: Number,
+      value: 0
+    },
   },
 
   /**

@@ -1,0 +1,18 @@
+<page-holder bottom="{{_pageBottom}}">
+    <content-layout slot="contentHolder" setStatus="{{setStatus}}" setNavigation="{{setNavigation}}" setTab="{{setTab}}">
+        <view class="navigationBar" slot="navigationBar">
+            <slot name="navigationBar"></slot>
+        </view>
+        <view slot="contentWindow" class="contentWindow" style="background-color:{{contentBGC}};">
+            <scroll-view class="messagesHolder" style="height:{{_scrollHeight}}px" scroll-top="{{_scrollTop}}" scroll-with-animation="{{false}}" scroll-y>
+                <slot name="messagesHolder"></slot>
+            </scroll-view>
+        </view>
+        <view class="inputArea" slot="tabBar">
+            <slot name="inputArea"></slot>
+        </view>
+    </content-layout>
+    <view class="popHolder" slot="popHolder">
+        <slot name="popHolder"></slot>
+    </view>
+</page-holder>

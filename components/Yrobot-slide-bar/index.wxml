@@ -1,7 +1,9 @@
 <!-- Yrobot-toast/Yrobot-toast.wxml -->
-<popup-view id="_YrobotSlideBar_popup" bind:coverClose="{{coverClose?'hide':''}}">
-  <view class="YrobotSlideBar" style="display:{{_slideBarOn?'block':'none'}};" animation="{{slideBarAnimation}}" slot="left">
+<popup-view id="_YrobotSlideBar_popup" bind:coverClose="hide">
+  <view class="YrobotSlideBar" animation="{{slideBarAnimation}}" slot="left" bindtouchstart="touchTrigger.start" bindtouchmove="touchTrigger.move" bindtouchend="touchTrigger.end" bindtouchcancel="touchTrigger.cancel">
+  <!-- <view class="YrobotSlideBar" style="display:{{_slideBarOn?'block':'none'}};" animation="{{slideBarAnimation}}" slot="left"> -->
     <view class="statusBarBG" wx:if="{{statusBGOn}}" style="height:{{statusBarHeight}}px;"></view>
+    <view class="touchTrigger" style="width:{{triggerWidth}}; right:-{{triggerWidth}};" catchtouchstart="touchTrigger.start" catchtouchmove="touchTrigger.move" catchtouchend="touchTrigger.end" catchtouchcancel="touchTrigger.cancel"></view>
     <slot></slot>
   </view>
 </popup-view>

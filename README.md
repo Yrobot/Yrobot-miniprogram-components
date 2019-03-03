@@ -5,6 +5,8 @@ Yrobot的微信小程序的组件库
 详见组件的index.js的属性，以及demo1的应用案例
 
 ## 2. popup-view : 遮蔽层组件的基础组件
+1. 2019年1月14日 添加遮蔽层的显隐动画调用函数控制
+2. 2019年1月14日 添加遮蔽层的点击事件的钩子函数，用于控制点击遮蔽层关闭事件  
 引用page页： 
 - .json：
 ```
@@ -87,4 +89,14 @@ Yrobot的微信小程序的组件库
     } 
     具体参考demo1的index.wxml
 ```
+
+## 4. Yorbot-dialog : 页面对话框  
+主要是一个对话框的容器，包括title、content、button 3个slot  
+利用show()、hide()函数控制显隐，默认点击侧壁层会关闭  
+
+
+## 5. Yorbot-slideBar : 页面侧边栏 
+根据内容的大小自适应  
+利用show()、hide()函数控制显隐，默认点击侧壁层会关闭  
+默认从statusbar开始绘制，可以自己利用wx的API获取statusBar高度来设计占位元素  
 

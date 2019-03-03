@@ -1,7 +1,12 @@
 .YrobotSlideBar {
   position: absolute;
   height: 100%;
-  transform: translate(-100%, 0);
+  right: 0;
+  visibility: visible;
+}
+.YrobotSlideBar .touchTrigger {
+  position: absolute;
+  height: 100%;
 }
 .YrobotSlideBar .statusBarBG {
   position: absolute;

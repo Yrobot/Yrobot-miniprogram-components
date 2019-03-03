@@ -20,6 +20,11 @@ Component({
     BGColor: {
       type: String,
       value: '#ffffff'
+    },
+    // 点击button区域自动调用hide()
+    autoClose: {
+      type: Boolean,
+      value: true
     }
   },
 
@@ -74,5 +79,10 @@ Component({
         }, duration);
       })
     },
+    tryClose(){
+      if (this.data.autoClose){
+        this.hide();
+      }
+    }
   }
 })

@@ -60,15 +60,23 @@ Component({
         duration: 200,
         timingFunction: 'linear',
       })
-      this.setData({
-        _BGon: true,
-      }, () => {
-        setTimeout(() => {
-          this.setData({
-            BGanimation: animation.export()
-          })
-        }, 100);
-      })
+      if (this.data._BGon) {
+        this.setData({
+          BGanimation: animation.export()
+        })
+        animation = null;
+      } else {
+        this.setData({
+          _BGon: true,
+        }, () => {
+          setTimeout(() => {
+            this.setData({
+              BGanimation: animation.export()
+            })
+            animation = null;
+          }, 100);
+        })
+      }
     },
     hideBG() {
       let duration = 300;
@@ -85,11 +93,32 @@ Component({
           this.setData({
             _BGon: false,
           })
+          animation = null;
         }, duration);
       })
     },
-    tapCover(){
-      this.triggerEvent('coverClose',{},{});
+    tapCover() {
+      this.triggerEvent('coverClose', {}, {});
+    },
+    BGtransform(opacity) {
+      if (!this.data._BGon && opacity > 0) { //最开始的需要先display：block
+        this.setData({
+          _BGon: true,
+        })
+      } else {
+        if (opacity < 0) opacity = 0;
+        if (opacity > 1) opacity = 1;
+        var animation = wx.createAnimation({
+        })
+        animation.opacity(opacity).step({
+          duration: 0,
+          timingFunction: 'linear',
+        })
+        this.setData({
+          BGanimation: animation.export()
+        })
+        animation = null;
+      }
     },
   },
 })

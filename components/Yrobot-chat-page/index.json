@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "page-holder": "/components/Yrobot-page-holder/index",
+    "content-layout": "/components/Yrobot-content-layout/index"
+  }
+}

@@ -2,11 +2,11 @@
 <view class="contentLayout">
     <view class="windowHolder">
         <view class="statusPlaceHolder" wx:if="{{statusBar.placeHold}}" style="height:{{statusBar._height}}px;"></view>
-        <view class="navigationPlaceHolder" wx:if="{{navigationBar.placeHold}}" style="height:{{navigationBar._height}}px;"></view>
+        <view class="navigationPlaceHolder" wx:if="{{navigationBar.placeHold}}" style="height:{{navigationBar._height||navigationBar.height}}px;"></view>
         <view class="contentWindow">
             <slot name="contentWindow"></slot>
         </view>
-        <view class="tabBarPlaceHolder" wx:if="{{tabBar.placeHold}}" style="height:{{tabBar._height}}px;"></view>
+        <view class="tabBarPlaceHolder" wx:if="{{tabBar.placeHold}}" style="height:{{tabBar._height||tabBar.height}}px;"></view>
     </view>
     <view class="statusBar" style="height:{{statusBar._height}}px;background-color:{{statusBar.BGColor}};"></view>
     <view class="navigationBarHolder" style="top:{{statusBar._height}}px;">

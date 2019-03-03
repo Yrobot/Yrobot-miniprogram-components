@@ -1,5 +1,5 @@
 <!-- Yrobot-layout/Yrobot-layout.wxml -->
-<view class="YrobotPageHolder">
+<view class="YrobotPageHolder" style="bottom:{{bottom}}px">
     <view class="YrobotContentHolder">
         <slot name="contentHolder"></slot>
     </view>
