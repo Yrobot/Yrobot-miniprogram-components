@@ -3,9 +3,18 @@
     <view class="windowHolder">
         <view class="statusPlaceHolder" wx:if="{{statusBar.placeHold}}" style="height:{{statusBar._height}}px;"></view>
         <view class="navigationPlaceHolder" wx:if="{{navigationBar.placeHold}}" style="height:{{navigationBar._height||navigationBar.height}}px;"></view>
-        <view class="contentWindow">
+        <view class="contentWindow" wx:if="{{!pageids.length}}">
             <slot name="contentWindow"></slot>
         </view>
+        <swiper class="contentWindow" wx:if="{{pageids.length}}" current-item-id="{{defaultid}}" bindchange="swiperChange">
+            <block wx:for="{{pageids}}" wx:key="{{item}}">
+                <swiper-item item-id="{{item}}">
+                    <view class="swiper-content" wx:if="{{pageStates[item]}}">
+                        <slot name="swiperpage_{{item}}"></slot>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
         <view class="tabBarPlaceHolder" wx:if="{{tabBar.placeHold}}" style="height:{{tabBar._height||tabBar.height}}px;"></view>
     </view>
     <view class="statusBar" style="height:{{statusBar._height}}px;background-color:{{statusBar.BGColor}};"></view>
@@ -16,4 +25,3 @@
         <slot name="tabBar"></slot>
     </view>
 </view>
-

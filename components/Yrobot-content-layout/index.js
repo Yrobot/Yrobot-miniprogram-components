@@ -69,6 +69,49 @@ Component({
           })
       }
     },
+    // 使用自定义tabbar时使用
+    // 传入pageids，在swiper中生成对应slot
+    // 使用slot="swiperpage_{{id}}"将页面插入对应位置
+    pageids: {
+      type: Array,
+      value: [],
+      observer(pageids, oldVal, changedPath) {
+        let pageStates = this.data.pageStates || {};
+        if (this.data.defaultid === null && pageids.length > 0) {
+          this.setData({
+            defaultid: pageids[0]
+          })
+        }
+        if (pageids.length > 0) {
+          pageids.map(val => {
+            pageStates[val] = pageStates[val] ? true : false;
+          })
+          this.setData({
+            pageStates
+          })
+        }
+      }
+    },
+    pageswipe: {
+      type: Boolean,
+      value: true
+    },
+    // 默认的swiperpage打开页
+    defaultid: {
+      type: Number,
+      value: null, //默认pageids的第一个
+      observer(defaultid, oldVal, changedPath) {
+        let pageStates = this.data.pageStates || {};
+        pageStates[defaultid] = true;
+        this.setData({
+          pageStates
+        })
+      }
+    },
+  },
+
+  observers: {
+
   },
 
   /**
@@ -78,7 +121,7 @@ Component({
     tabBarAnimation: {},
     statusBar: {
       _height: statusBarH,
-      BGColor: '',
+      BGColor: "",
       placeHold: true, //是否在contentWindow层占位，即控制contentWindow的大小
     },
     navigationBar: {
@@ -93,6 +136,9 @@ Component({
     },
     tabBarShow: true,
     // tabBarHideY: 0,
+    pageStates: {
+      // "id1":false,
+    },
   },
 
   /**
@@ -112,7 +158,7 @@ Component({
       //   return;
       const that = this;
       const query = wx.createSelectorQuery().in(this)
-      query.select('.navigationBarHolder').boundingClientRect(function (res) {
+      query.select(".navigationBarHolder").boundingClientRect(function (res) {
         that.setData({
           navigationBar: {
             ...(that.data.navigationBar),
@@ -121,7 +167,7 @@ Component({
         })
         that._navigationBarH = res.height;
       }).exec()
-      query.select('.tabBarHolder').boundingClientRect(function (res) {
+      query.select(".tabBarHolder").boundingClientRect(function (res) {
         that.setData({
           tabBar: {
             ...(that.data.tabBar),
@@ -145,12 +191,51 @@ Component({
       })
       animation.translateY((!show ? this.data.tabBar._height : 0)).step({
         duration: 500,
-        timingFunction: 'ease',
+        timingFunction: "ease",
       })
       this.setData({
         tabBarShow: show,
         tabBarAnimation: animation.export()
       })
+    },
+    swiperChange(event) {
+      const { currentItemId, source } = event.detail;
+      if (source === "touch") {
+        // 改变页面加载状态
+        let pageStates = this.data.pageStates || {};
+        pageStates[currentItemId] = true;
+        this.setData({
+          pageStates
+        });
+        // 触发pageChange
+        let param = {
+          type: "swiper",
+          id: currentItemId,
+          index: this.data.pageids.indexOf(currentItemId)
+        };
+        this.pageChange(param);
+      }
+    },
+    /**
+     * @description 切换页面的钩子
+     * @author Yrobot
+     * @date 2019-03-24
+     * @param {*} param 页面判定主要参考id
+     */
+    pageChange(param) {
+      if (param.type === "swiper") {
+        this.triggerEvent("changetabbar", param, {})
+      } else if (param.type === "tabBar") {
+        this.changeSwiper(param);
+      } else {
+        this.changeSwiper(param);
+        this.triggerEvent("changetabbar", param, {})
+      }
+    },
+    changeSwiper(param) {
+      this.setData({
+        defaultid: param.id
+      });
     },
   }
 })
