@@ -98,7 +98,7 @@ Component({
     },
     // 默认的swiperpage打开页
     defaultid: {
-      type: Number,
+      type: String,
       value: null, //默认pageids的第一个
       observer(defaultid, oldVal, changedPath) {
         let pageStates = this.data.pageStates || {};
