@@ -92,9 +92,9 @@ Component({
         }
       }
     },
-    pageswipe: {
+    noswipe: {
       type: Boolean,
-      value: true
+      value: false
     },
     // 默认的swiperpage打开页
     defaultid: {
@@ -236,6 +236,8 @@ Component({
       this.setData({
         defaultid: param.id
       });
+    },
+    catchfunc(e) {
     },
   }
 })
