@@ -98,6 +98,9 @@ Yrobot的微信小程序的组件库
 - 主要参数：`setStatus:{}, setNavigation:{}, setTab:{}`  
 
 2. 因为自定义tabBar切换时闪烁的问题，本组件决定用单页面应用的形式来解决，利用swiper作为页面容器填充contentWindow的位置，将页面以组件的形式，利用slot: name=swipepage_{{pageid}},将页面组件填充到swiper中   
+- 设计逻辑图：  
+![](https://ws1.sinaimg.cn/large/d586f89bly1g1dp69ma0dj20lu0c5mxz.jpg)  
+![](https://ws1.sinaimg.cn/large/d586f89bly1g1dp76krrwj20g708cweo.jpg)  
 - tips： 为了提升性能，初始化只渲染默认页，其他页面切换后才渲染，会保存渲染状态，防止重复渲染。并且保证了页面的生命周期是在第一次切换时才触发  
 - 主要参数：`pageids:[], changetabbar:func, noswipe:bool, defaultid:string`  
 - 参数作用：  
