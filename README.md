@@ -2,6 +2,7 @@
 Yrobot的微信小程序的组件库
 
 ## 1. slide-view : 列表滑动组件
+可以实现类似于对话列表滑动出现删除按钮的场景  
 详见组件的index.js的属性，以及demo1的应用案例
 
 ## 2. popup-view : 遮蔽层组件的基础组件
@@ -49,6 +50,7 @@ Yrobot的微信小程序的组件库
 ```
 
 ## 4. Yorbot-page-holder : 页面分隔内容层和弹窗层的容器
+1. 2019年3月24日 10:38:03 添加bottom属性，用于键盘弹起时页面高度的适配  
 引用page页：
 - .json：
 ```
@@ -90,13 +92,36 @@ Yrobot的微信小程序的组件库
     具体参考demo1的index.wxml
 ```
 
-## 4. Yorbot-dialog : 页面对话框  
+## 5. Yrobot-content-layout : 页面内容的布局容器  
+1. 主要将页面的内容部分分为：statusBar、navigationBar、contentWindow、tabBar四个部分  
+利用组件参数和事件可以很好的控制contentWindow的大小，从而很快的实现全页面展示、快速隐藏tabBar和navigationBar等效果  
+- 主要参数：`setStatus:{}, setNavigation:{}, setTab:{}`  
+
+2. 因为自定义tabBar切换时闪烁的问题，本组件决定用单页面应用的形式来解决，利用swiper作为页面容器填充contentWindow的位置，将页面以组件的形式，利用slot: name=swipepage_{{pageid}},将页面组件填充到swiper中   
+- tips： 为了提升性能，初始化只渲染默认页，其他页面切换后才渲染，会保存渲染状态，防止重复渲染。并且保证了页面的生命周期是在第一次切换时才触发  
+- 主要参数：`pageids:[], changetabbar:func, noswipe:bool, defaultid:string`  
+- 参数作用：  
+`pageids` ： 使用swiper作为容器，生成相应个数的swiper-item以及slot供页面组件插入  
+`changetabbar` ： 当页面切换时会调用此函数通知外部的tabBar切换  
+`noswipe` : 页面是否可以通过滑动切换  
+`defaultid` : 默认展示的页面id
+
+## 6. Yorbot-dialog : 页面对话框  
 主要是一个对话框的容器，包括title、content、button 3个slot  
 利用show()、hide()函数控制显隐，默认点击侧壁层会关闭  
 
 
-## 5. Yorbot-slideBar : 页面侧边栏 
+## 7. Yorbot-slideBar : 页面侧边栏 
 根据内容的大小自适应  
 利用show()、hide()函数控制显隐，默认点击侧壁层会关闭  
 默认从statusbar开始绘制，可以自己利用wx的API获取statusBar高度来设计占位元素  
+
+
+## 8. Yrobot-chat-page : 聊天页布局
+聊天页面的布局组件  
+内部调用页面布局组件，所以使用时外部无需嵌套，直接作为根节点即可  
+主要有以下几个slot：navigationBar、messagesHolder、inputArea、popHolder   
+- 参数： [Yrobot-content-layout的第一部分参数]、contentBGC  
+- 参数作用：  
+`contentBGC` : 因为wx获取元素高度不精确的问题暂用的参数，用于和聊天背景融合，设置为背景颜色即可，默认#fff     
 
