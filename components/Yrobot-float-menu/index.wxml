@@ -1,0 +1,8 @@
+<!-- Yrobot-toast/Yrobot-toast.wxml -->
+<popup-view top="{{touch.y}}" coverColor="rgba(0,0,0,0)" id="yrobot_float_menu_popup" bind:coverClose="hide">
+  <view class="touch_area" style="left:{{touch.x}}" slot="float" wx:if="{{_floatMenuOn}}">
+    <view class="float_menu" style="transform: scale(0,0);{{positionStyle}}" animation="{{animation}}" bind:tap="tryClose">
+      <view class="float_menu_item" wx:for="{{menulist}}" wx:key="{{inedx}}" bind:tap="yrobot_menufunc{{index}}">{{item.text}}</view>
+    </view>
+  </view>
+</popup-view>

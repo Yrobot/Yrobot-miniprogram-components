@@ -128,3 +128,42 @@ Yrobot的微信小程序的组件库
 - 参数作用：  
 `contentBGC` : 因为wx获取元素高度不精确的问题暂用的参数，用于和聊天背景融合，设置为背景颜色即可，默认#fff     
 
+
+## 8. Yrobot-float-menu : 模仿微信长按对话列表弹出的菜单栏
+样式参看：  
+![](https://ws1.sinaimg.cn/large/d586f89bly1g1f2i2eobvj20bl0khdg3.jpg)  
+  
+- 类似yrobot-dialog的使用流程，  
+- json中添加组件引入，  
+- 在wxml中加入Yrobot-float-menu，并设置`id="YrobotFloatMenu"`   
+- 在js中，并利用`this.selectComponent("#YrobotFloatMenu").show(event,menulist);`展示floatmenu（event指触摸的事件参数,menulist见下方）   
+- 关于长按等事件的实现，建议使用[Yrobot-touch](https://github.com/Yrobot/YrobotTouch-WXLP)  
+
+`menulist`： 配置floatmenu中展示的文字和对应的函数（涉及到this操作记得用bind绑定页面this）  
+```
+menulist的格式示例：
+menulist: [
+            {
+                text: '标为未读',
+                func: function () {
+                    console.log('标为未读')
+                }.bind(this)
+            },
+            {
+                text: '置顶聊天',
+                func: function () {
+                    console.log('置顶聊天')
+                }.bind(this)
+            },
+            {
+                text: '删除该聊天',
+                func: function () {
+                    console.log('删除该聊天')
+                }.bind(this)
+            },
+        ],
+```
+
+
+__tips：__  
+1. 由于监听的对象一般为容器，所以在page页另外需要逻辑去判断对应的数据对象。一般操作是在page页利用变量储存对象，方便`menulist.func`进行调用。  
