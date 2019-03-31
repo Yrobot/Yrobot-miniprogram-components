@@ -129,7 +129,7 @@ Yrobot的微信小程序的组件库
 `contentBGC` : 因为wx获取元素高度不精确的问题暂用的参数，用于和聊天背景融合，设置为背景颜色即可，默认#fff     
 
 
-## 8. Yrobot-float-menu : 模仿微信长按对话列表弹出的菜单栏
+## 9. Yrobot-float-menu : 模仿微信长按对话列表弹出的菜单栏
 样式参看：  
 ![](https://ws1.sinaimg.cn/large/d586f89bly1g1f2i2eobvj20bl0khdg3.jpg)  
   
@@ -167,3 +167,31 @@ menulist: [
 
 __tips：__  
 1. 由于监听的对象一般为容器，所以在page页另外需要逻辑去判断对应的数据对象。一般操作是在page页利用变量储存对象，方便`menulist.func`进行调用。  
+
+## 10. Yrobot-list-holder : 纵向list容器
+- 主要封装了 1刷新 2加载 3没有更多 4没有数据 等状态。利用属性控制。  
+- 默认就一个slot，用于填充list内部列表项展示  
+
+- 参数： `nodata[Bool],nomore[Bool],scrollprop[Object],refreshtrigger[func],loadmoretrigger[func]`  
+- 参数作用：  
+`nodata` : 用于控制组件展示 _无数据_ 的样式   
+`nomore` : 用于控制组件切换list底部 _加载更多_ 和 _没有更多数据_ 的样式   
+`scrollprop` : scroll-view的一些配置和钩子函数，可选格式如下,具体参考小程序官方文档    
+`refreshtrigger` : 用户 _刷新操作_ 的钩子      
+`loadmoretrigger` : 用户 _加载更多_ 的钩子   
+```
+scrollprop:{
+    "scroll-top": 10,
+    "scroll-into-view": "",
+    "scroll-with-animation": false,
+    "enable-back-to-top": false,
+    "bindscroll": e => { },
+    "bindscrolltolower": e => { },
+    "bindscrolltoupper": e => { },
+}
+```
+  
+- 开放函数：`closeRefresh(),loadfinish()`   
+`closeRefresh()` : 刷新完成时调用，利用函数 关闭组件刷新动画      
+`loadfinish()` : 加载完成时调用，利用函数 关闭组件加载防抖动       
+

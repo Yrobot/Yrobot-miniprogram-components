@@ -1,0 +1,133 @@
+.scroll-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.list-hoder {
+    position: relative;
+    width: 100%;
+
+    .refresh-area {
+        position: absolute;
+        top: -40px;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .refresh-box {
+            // transform: translateY(70px);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fafafa;
+            box-shadow: 0rpx 0rpx 20rpx 5rpx #E7E7E7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+
+            .refresh-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 30px;
+                line-height: 30px;
+                text-align: center;
+                transform-origin: center;
+            }
+        }
+    }
+
+    .nodata-area {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .nodata-icon {
+            width: 600rpx;
+            height: 200rpx;
+            line-height: 200rpx;
+            font-size: 200rpx;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .ondata-tip {
+            font-size: 40rpx;
+            color: #ccc;
+        }
+    }
+
+    .loadmore-area {
+        width: 100%;
+        height: 100rpx;
+        line-height: 100rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .info-line {
+            width: 40rpx;
+            height: 5rpx;
+            border-radius: 2rpx;
+            background-color: #ccc;
+        }
+
+        .info-box {
+            font-size: 28rpx;
+            text-align: center;
+            padding: 0 20rpx;
+            color: #ccc;
+        }
+
+        .loadmore-icon {
+            width: 60rpx;
+            height: 60rpx;
+            font-size: 60rpx;
+            line-height: 60rpx;
+            text-align: center;
+            color: #000;
+            animation: myRotate 1s linear infinite;
+        }
+    }
+}
+
+@keyframes myRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@font-face {
+    font-family: 'list-holder-icon';
+    src: url('//at.alicdn.com/t/font_1114324_xtspxo0877f.eot');
+    src: url('//at.alicdn.com/t/font_1114324_xtspxo0877f.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_1114324_xtspxo0877f.woff2') format('woff2'),
+        url('//at.alicdn.com/t/font_1114324_xtspxo0877f.woff') format('woff'),
+        url('//at.alicdn.com/t/font_1114324_xtspxo0877f.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_1114324_xtspxo0877f.svg#iconfont') format('svg');
+}
+
+.list-holder-icon {
+    font-family: "list-holder-icon" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-load:before {
+    content: "\e654";
+}
+
+.icon-nodata:before {
+    content: "\e708";
+}
