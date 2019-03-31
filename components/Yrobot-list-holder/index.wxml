@@ -1,5 +1,5 @@
 <view class="scroll-placeholder" bind:touchstart="scrollListner.start" bind:touchmove="scrollListner.move" bind:touchend="scrollListner.end" bind:touchcancel="scrollListner.cancel">
-  <scroll-view class="list-hoder" wx:if="{{_scrollHeight}}" style="height:{{_scrollHeight+'px'}}" scroll-y bindscroll="_YrobotListScroll" bindscrolltolower="_loadmore" scroll-top="{{scrollprop['scroll-top']}}" scroll-into-view="{{scrollprop['scroll-into-view']}}" scroll-with-animation="{{scrollprop['scroll-with-animation']}}" enable-back-to-top="{{scrollprop['enable-back-to-top']}}" bindscrolltolower="_bindscrolltolower" bindscrolltoupper="_bindscrolltoupper" >
+  <scroll-view class="list-hoder" wx:if="{{_scrollHeight}}" style="height:{{_scrollHeight+'px'}}" scroll-y bindscroll="_bindscroll" scroll-top="{{scrollprop['scroll-top']}}" scroll-into-view="{{scrollprop['scroll-into-view']}}" scroll-with-animation="{{scrollprop['scroll-with-animation']}}" enable-back-to-top="{{scrollprop['enable-back-to-top']}}" bindscrolltolower="_bindscrolltolower" bindscrolltoupper="_bindscrolltoupper" >
     <view class="refresh-area">
       <view class="refresh-box" animation="{{refreshAnimation}}">
         <view class="refresh-icon list-holder-icon icon-load" style="{{refreshing ? 'animation: myRotate 1s linear infinite;':''}}"></view>

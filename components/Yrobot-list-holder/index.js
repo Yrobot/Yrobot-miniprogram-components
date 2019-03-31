@@ -130,8 +130,6 @@ Component({
       if (!this._needListenRefresh && e.detail.scrollTop <= trigger) {
         this._needListenRefresh = true;
       }
-
-      this.data.scrollprop.bindscroll(e);
     },
     _loadmore() {
       if (!this.data.nomore) {
@@ -150,8 +148,12 @@ Component({
     loadfinish() {
       this.load_check = true;
     },
-
+    _bindscroll(e){
+      this._YrobotListScroll(e);
+      this.data.scrollprop.bindscroll(e);
+    },
     _bindscrolltolower(e) {
+      this._loadmore();
       this.data.scrollprop.bindscrolltolower(e);
     },
     _bindscrolltoupper(e) {
