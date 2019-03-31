@@ -36,7 +36,6 @@ Component({
     //navigationBar的style
     // {
     //  placeHold //是否在contentWindow层占位，即控制contentWindow的大小
-    //  height // 默认占位高度
     // }
     setNavigation: {
       type: Object,
@@ -54,7 +53,6 @@ Component({
     //tabBar的style
     // {
     //  placeHold //是否在contentWindow层占位，即控制contentWindow的大小
-    //  height // 默认占位高度
     // }
     setTab: {
       type: Object,
@@ -125,14 +123,10 @@ Component({
       placeHold: true, //是否在contentWindow层占位，即控制contentWindow的大小
     },
     navigationBar: {
-      _height: 0,
       placeHold: true,
-      height: 0, //px,用于初始占位
     },
     tabBar: {
-      _height: 0,
       placeHold: true,
-      height: 0, //px,用于初始占位
     },
     tabBarShow: true,
     // tabBarHideY: 0,
@@ -141,39 +135,19 @@ Component({
     },
   },
 
-  /**
-   * 组件的方法列表
-   */
   ready() {
     this.updateHeight();
   },
   methods: {
     /**
-     * @description 计算出navigationBar和tabBar的_height，用于撑开占位view的高度
+     * @description 计算出tabBar的_height,用于动画
      * @author Yrobot
-     * @date 2018-12-23
+     * @date 2019年3月31日
      */
     updateHeight() {
-      // if (this.data.navigationBar.height && this.data.tabBar.height)
-      //   return;
       const that = this;
       const query = wx.createSelectorQuery().in(this)
-      query.select(".navigationBarHolder").boundingClientRect(function (res) {
-        that.setData({
-          navigationBar: {
-            ...(that.data.navigationBar),
-            _height: res.height
-          }
-        })
-        that._navigationBarH = res.height;
-      }).exec()
-      query.select(".tabBarHolder").boundingClientRect(function (res) {
-        that.setData({
-          tabBar: {
-            ...(that.data.tabBar),
-            _height: res.height
-          }
-        })
+      query.select(".tabBarPlaceHolder").boundingClientRect(function (res) {
         that._tabBarH = res.height;
       }).exec()
     },
@@ -189,7 +163,7 @@ Component({
         return;
       var animation = wx.createAnimation({
       })
-      animation.translateY((!show ? this.data.tabBar._height : 0)).step({
+      animation.translateY((!show ? this._tabBarH : 0)).step({
         duration: 500,
         timingFunction: "ease",
       })

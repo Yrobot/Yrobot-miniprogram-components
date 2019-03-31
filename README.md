@@ -95,7 +95,7 @@ Yrobot的微信小程序的组件库
 ## 5. Yrobot-content-layout : 页面内容的布局容器  
 1. 主要将页面的内容部分分为：statusBar、navigationBar、contentWindow、tabBar四个部分  
 利用组件参数和事件可以很好的控制contentWindow的大小，从而很快的实现全页面展示、快速隐藏tabBar和navigationBar等效果  
-- 主要参数：`setStatus:{}, setNavigation:{}, setTab:{}`  
+- 主要参数：`setStatus:{BGColorn,placeHold}, setNavigation:{placeHold}, setTab:{placeHold}`  
 
 2. 因为自定义tabBar切换时闪烁的问题，本组件决定用单页面应用的形式来解决，利用swiper作为页面容器填充contentWindow的位置，将页面以组件的形式，利用slot: name=swipepage_{{pageid}},将页面组件填充到swiper中   
 - 设计逻辑图：  
