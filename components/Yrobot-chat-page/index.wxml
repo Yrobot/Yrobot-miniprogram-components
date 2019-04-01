@@ -3,8 +3,8 @@
         <view class="navigationBar" slot="navigationBar">
             <slot name="navigationBar"></slot>
         </view>
-        <view slot="contentWindow" class="contentWindow" style="background-color:{{contentBGC}};">
-            <scroll-view class="messagesHolder" style="height:{{_scrollHeight}}px" scroll-top="{{_scrollTop}}" scroll-with-animation="{{false}}" scroll-y>
+        <view slot="contentWindow" class="contentWindow">
+            <scroll-view class="messagesHolder" wx:if="{{_scrollHeight}}" style="height:{{_scrollHeight}}px" scroll-top="{{_scrollTop}}" scroll-with-animation="{{true}}" scroll-y>
                 <slot name="messagesHolder"></slot>
             </scroll-view>
         </view>

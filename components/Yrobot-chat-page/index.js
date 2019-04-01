@@ -9,12 +9,10 @@ const maxScroll = 99999;
 
 Component({
   options: {
-    multipleSlots: true // 在组件定义时的选项中启用多slot支持
+    multipleSlots: true 
   },
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+  
+  properties: { //钩子函数：suitKeyBoard()
     setStatus: {
       type: Object,
       value: {},
@@ -54,25 +52,14 @@ Component({
           })
       }
     },
-    // 因为wx获取元素高度不精确的问题暂用的参数，用于和聊天背景融合，不出现白边
-    contentBGC: { 
-      type: String,
-      value: '#ffffff'
-    }
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
     _pageBottom: 0,
-    _scrollHeight: undefined,
+    _scrollHeight: 0,
     _scrollTop: 0,
   },
 
-  /**
-   * 组件的方法列表
-   */
   ready() {
     this._updateScrollHeight();
     this.scrollTo(maxScroll);
