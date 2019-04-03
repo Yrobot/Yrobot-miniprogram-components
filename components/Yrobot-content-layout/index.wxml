@@ -2,7 +2,7 @@
 <view class="contentLayout">
     <view class="windowHolder">
         <view class="statusPlaceHolder" style="height:{{statusBar._height}}px;background-color:{{statusBar.BGColor}};{{statusBar.placeHold?'':'position:absolute;left:0;top:0;'}}"></view>
-        <view class="navigationBarHolder" style="{{navigationBar.placeHold?'':('position:absolute;left:0;top:'+statusBar._height+'px;')}}">
+        <view class="navigationPlaceHolder" style="{{navigationBar.placeHold?'':('position:absolute;left:0;top:'+statusBar._height+'px;')}}">
             <slot name="navigationBar"></slot>
         </view>
         
