@@ -9,18 +9,9 @@
         <view class="contentWindow" wx:if="{{!pageids.length}}">
             <slot name="contentWindow"></slot>
         </view>
-        <swiper class="contentWindow" wx:if="{{pageids.length && !noswipe}}" duration="{{noswipe?0:500}}" current-item-id="{{defaultid}}" bindchange="swiperChange">
+        <swiper class="contentWindow" wx:if="{{pageids.length}}" duration="{{noswipe?0:500}}" current-item-id="{{defaultid}}" bindchange="swiperChange">
             <block wx:for="{{pageids}}" wx:key="{{item}}">
-                <swiper-item item-id="{{item}}">
-                    <view class="swiper-content" wx:if="{{pageStates[item]}}">
-                        <slot name="swiperpage_{{item}}"></slot>
-                    </view>
-                </swiper-item>
-            </block>
-        </swiper>
-        <swiper class="contentWindow" wx:if="{{pageids.length && noswipe}}" duration="{{noswipe?0:500}}" current-item-id="{{defaultid}}" bindchange="swiperChange">
-            <block wx:for="{{pageids}}" wx:key="{{item}}">
-                <swiper-item item-id="{{item}}" catch:touchmove="catchfunc">
+                <swiper-item item-id="{{item}}" catch:touchmove="{{noswipe?'catchfunc':''}}">
                     <view class="swiper-content" wx:if="{{pageStates[item]}}">
                         <slot name="swiperpage_{{item}}"></slot>
                     </view>
