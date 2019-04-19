@@ -193,5 +193,66 @@ scrollprop:{
   
 - 开放函数：`closeRefresh(),loadfinish()`   
 `closeRefresh()` : 刷新完成时调用，利用函数 关闭组件刷新动画      
-`loadfinish()` : 加载完成时调用，利用函数 关闭组件加载防抖动       
+`loadfinish()` : 加载完成时调用，利用函数 关闭组件加载防抖动   
 
+
+
+## 11. Yrobot-filter : 筛选栏  
+- 主要方式有两种: 1.step步骤单选 2.multiple多选  
+- 利用`Yrobot-filter.show({content, type, value, filter_type})`传入数据,数据最大宽度为4          
+- 利用钩子：关闭filter钩子closeFilter(),数据改变钩子filterTrigger()，方便调用页面处理相应逻辑   
+
+- wxml组件属性：`coverClose[Bool],BGcolors[Array],chosed_color[String]`    
+分别表示：点击阴影是否关闭, filter每列的背景色, filter选中文字的颜色   
+示例：
+```
+BGcolors: ["#ffffff", "#fcfcfc", "#f8f8f8", "#f4f4f4"];   
+chosed_color: "rgb(250, 225, 161)"
+```
+
+- js主动调起：`Yrobot-filter.show({content, type, value, filter_type})`  
+1. content 表示filter的数据源，step和muliple的数据格式不同   
+示例：
+```
+step: //1.选项是列表：Array表示,[0]为值,其余为列表值; 2.选项不是列表：string表示
+content:[
+    ["小学",
+        ["一年级", "数学", "语文", "英语", "奥数", "作业辅导", "不限"],
+        ["二年级", "数学", "语文", "英语", "奥数", "作业辅导", "不限"],
+        ["三年级", "数学", "语文", "英语", "奥数", "作业辅导", "不限"],
+        ["四年级", "数学", "语文", "英语", "奥数", "作业辅导", "不限"],
+        ["五年级", "数学", "语文", "英语", "奥数", "作业辅导", "不限"],
+        ["六年级", "数学", "语文", "英语", "奥数", "作业辅导", "不限"],
+        ["不限", "数学", "语文", "英语", "奥数", "作业辅导", "不限"],
+    ],
+    ["初中",
+        ["一年级", "数学", "语文", "英语", "科学", "思政", "作业辅导", "不限"],
+        ["二年级", "数学", "语文", "英语", "科学", "思政", "作业辅导", "不限"],
+        ["三年级", "数学", "语文", "英语", "科学", "思政", "作业辅导", "不限"],
+        ["不限", "数学", "语文", "英语", "科学", "思政", "作业辅导", "不限"],
+    ],
+]
+
+-------------------
+multiple: //直接传入每列的数组  
+content:[
+    ["周一", "周二", "周三", "周四", "周五", "周六", "周日", "不限"],
+    ["上午", "中午", "下午", "晚上", "不限"]
+]
+```
+2. type 钩子filterTrigger(res)参数res中的type传回值，用于判断是哪个字段的筛选结果   
+3. value filter的当前默认值，格式与钩子filterTrigger传回的格式一致  
+step例子：`["小学","二年级","语文"]`  
+multiple例子：`[["周一","周二"],["上午","晚上"]]`  
+
+4. filter_type 控制Yrobot-filter的类型，支持的值:`"step","multiple"`  
+
+- 获取结果：利用钩子filterTrigger获取filter结果和数据type，利用钩子closeFilter控制调用页面的样式  
+返回参数：
+```
+- filterTrigger: {type,value} 
+type: 数据type鉴别  
+value： filter结果，Array类型
+
+- closeFilter: undefined
+```

@@ -1,0 +1,25 @@
+<!-- Yrobot-toast/Yrobot-toast.wxml -->
+<popup-view id="_YrobotStepFilter_popup" bind:coverClose="hide">
+  <view class="Yrobot-step-filter" wx:if="{{_filterOn &&  _filter_type==='step'}}" style="height:{{filterHeight}}px;" animation="{{stepFilterAnimation}}" slot="top" bind:tap="tapStep">
+    <scroll-view class="list" wx:if="{{(list_index===0||result[list_index-1]>-1) && (list_index<maxLength)}}" scroll-y wx:for="{{lists}}" wx:key="{{list_index}}" style="height:{{filterHeight}}px;background-color:{{BGcolors[list_index]}};" wx:for-index="list_index" wx:for-item="list">
+      <view class="itemHolder">
+        <view class="item" wx:for="{{list}}" wx:key="{{item_index}}" wx:for-index="item_index" wx:for-item="item" data-list="{{list_index}}" data-itemindex="{{item_index}}" style="{{item_index ===  result[list_index]?('color:'+chosed_color+';'):''}}">
+          {{item}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="Yrobot-step-filter" wx:if="{{_filterOn &&  _filter_type==='multiple'}}" style="height:{{filterHeight}}px;" animation="{{stepFilterAnimation}}" slot="top" bind:tap="tapMultiple">
+    <scroll-view class="list" scroll-y wx:for="{{lists}}" wx:key="{{list_index}}" style="height:{{filterHeight}}px;background-color:{{BGcolors[list_index]}};" wx:for-index="list_index" wx:for-item="list">
+      <view class="itemHolder">
+        <view class="item" wx:for="{{list}}" wx:key="{{item_index}}" wx:for-index="item_index" wx:for-item="item" data-list="{{list_index}}" data-itemindex="{{item_index}}" style="{{result_multiple[list_index][item_index]?('color:'+chosed_color+';'):''}}">
+          {{item}}
+        </view>
+      </view>
+    </scroll-view>
+    <view class="button-area">
+      <view class="cancel" bind:tap="hide">关闭</view>
+      <view class="submit {{cansubmit_multiple?'on':'off'}}" bind:tap="submint_multiple">确定</view>
+    </view>
+  </view>
+</popup-view>

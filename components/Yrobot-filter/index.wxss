@@ -1,0 +1,68 @@
+.Yrobot-step-filter {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  background-color: #fff;
+  width: 100%;
+  overflow: visible;
+  display: flex;
+}
+.Yrobot-step-filter .list {
+  flex: auto;
+  border: 0px;
+}
+.Yrobot-step-filter .list .itemHolder {
+  position: relative;
+  width: 100%;
+}
+.Yrobot-step-filter .list .itemHolder .item {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #8b8b8b;
+}
+.Yrobot-step-filter .button-area {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 2.8%;
+  height: 120rpx;
+  left: 0;
+  bottom: -119rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+}
+.Yrobot-step-filter .button-area .cancel {
+  flex: none;
+  width: 28%;
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: 5rpx;
+  color: #fff;
+  background-color: #cccccc;
+}
+.Yrobot-step-filter .button-area .submit {
+  flex: none;
+  width: 60%;
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: 5rpx;
+  color: #fff;
+}
+.Yrobot-step-filter .button-area .on {
+  background-color: #ff9f00;
+}
+.Yrobot-step-filter .button-area .on:active {
+  background-color: #d68400;
+}
+.Yrobot-step-filter .button-area .off {
+  background-color: #cccccc;
+}
