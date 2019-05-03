@@ -4,6 +4,10 @@
     width: 1px;
     height: 1px;
     overflow: visible;
+    --menu-font-size: var(--size-font-first, 36rpx);
+
+    --menu-default-color: var(--color-font-first, #2c2c2c);
+
     .float_menu {
         position: absolute;
         border-radius: 2rpx;
@@ -11,14 +15,26 @@
         background-color: #fff;
         display: flex;
         flex-direction: column;
-        
+
         .float_menu_item {
             padding: 30rpx 50rpx 30rpx 30rpx;
             flex: auto;
             white-space: nowrap;
-            font-size: 16px;
+            font-size: var(--menu-font-size);
+            color: var(--menu-default-color);
+
             &:active {
-                background-color: #D9D9D9;
+                position: relative;
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    background-color: rgba(0, 0, 0, .1);
+                }
             }
         }
     }

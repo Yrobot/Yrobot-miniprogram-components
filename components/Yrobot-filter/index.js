@@ -25,10 +25,6 @@ Component({
         });
       }
     },
-    chosed_color: {
-      type: String,
-      value: "rgb(250, 225, 161)",
-    }
   },
 
   data: {
@@ -96,6 +92,8 @@ Component({
       this._result_type = type;
       this._filter_type = filter_type || "multiple";
 
+      clearTimeout(this._hide_timeOut);
+
       this.setData({
         _filter_type: filter_type
       })
@@ -122,7 +120,7 @@ Component({
         _filterOn: true,
       }, () => {
         this._updateFilterHeight();
-        setTimeout(() => {
+        this._show_timeOut = setTimeout(() => {
           this.setData({
             stepFilterAnimation: animation.export()
           });
@@ -131,6 +129,8 @@ Component({
       });
     },
     hide() {
+      clearTimeout(this._show_timeOut);
+
       let duration = 300;
       this.selectComponent('#_YrobotStepFilter_popup').hideBG();
       var animation = wx.createAnimation({
@@ -142,7 +142,7 @@ Component({
       this.setData({
         stepFilterAnimation: animation.export()
       }, () => {
-        setTimeout(() => {
+        this._hide_timeOut = setTimeout(() => {
           this.setData({
             _filterOn: false,
           });

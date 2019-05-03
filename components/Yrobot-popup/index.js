@@ -54,6 +54,7 @@ Component({
    */
   methods: {
     showBG() {
+      clearTimeout(this._hide_timeOut);
       var animation = wx.createAnimation({
       })
       animation.opacity(1).step({
@@ -69,7 +70,7 @@ Component({
         this.setData({
           _BGon: true,
         }, () => {
-          setTimeout(() => {
+          this._show_timeOut = setTimeout(() => {
             this.setData({
               BGanimation: animation.export()
             })
@@ -79,6 +80,7 @@ Component({
       }
     },
     hideBG() {
+      clearTimeout(this._show_timeOut);
       let duration = 300;
       var animation = wx.createAnimation({
       })
@@ -89,7 +91,7 @@ Component({
       this.setData({
         BGanimation: animation.export()
       }, () => {
-        setTimeout(() => {
+        this._hide_timeOut = setTimeout(() => {
           this.setData({
             _BGon: false,
           })

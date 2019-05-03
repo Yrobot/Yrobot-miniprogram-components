@@ -43,6 +43,7 @@ Component({
   },
   methods: {
     show() {
+      clearTimeout(this._hide_timeOut);
       this.selectComponent('#_YrobotDialog_popup').showBG();
       var animation = wx.createAnimation({
       })
@@ -53,7 +54,7 @@ Component({
       this.setData({
         _dialogOn: true,
       }, () => {
-        setTimeout(() => {
+        this._show_timeOut = setTimeout(() => {
           this.setData({
             dialogAnimation: animation.export()
           })
@@ -61,6 +62,7 @@ Component({
       })
     },
     hide() {
+      clearTimeout(this._show_timeOut);
       this.selectComponent('#_YrobotDialog_popup').hideBG();
       let duration = 300;
       var animation = wx.createAnimation({
@@ -72,7 +74,7 @@ Component({
       this.setData({
         dialogAnimation: animation.export()
       }, () => {
-        setTimeout(() => {
+        this._hide_timeOut = setTimeout(() => {
           this.setData({
             _dialogOn: false,
           })

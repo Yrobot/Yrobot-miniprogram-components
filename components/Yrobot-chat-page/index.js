@@ -61,7 +61,7 @@ Component({
   },
 
   ready() {
-    this._updateScrollHeight();
+    this.__updateScrollHeight();
     this.scrollTo(maxScroll);
   },
   methods: {
@@ -70,7 +70,7 @@ Component({
      * @author Yrobot
      * @date 2019-01-26
      */
-    _updateScrollHeight() {
+    __updateScrollHeight() {
       const that = this;
       const query = wx.createSelectorQuery().in(this)
       query.select('.contentWindow').boundingClientRect(function (res) {

@@ -11,7 +11,7 @@ Component({
     scrollprop: {
       type: Object,
       value: {
-        "scroll-top": 10,
+        "scroll-top": 0,
         "scroll-into-view": "",
         "scroll-with-animation": false,
         "enable-back-to-top": false,
@@ -38,7 +38,7 @@ Component({
 
   lifetimes: {
     ready() {
-      this._updateScrollHeight();
+      this.__updateScrollHeight();
       const that = this;
       this._refresh_position = 0;
       this._needListenRefresh = true;
@@ -113,7 +113,7 @@ Component({
         refreshing: false
       })
     },
-    _updateScrollHeight() {
+    __updateScrollHeight() {
       const that = this;
       const query = wx.createSelectorQuery().in(this)
       query.select('.scroll-placeholder').boundingClientRect(function (res) {

@@ -33,6 +33,7 @@ Component({
      * @param {*} menulist memu的列表，格式：[{text,func},...]
      */
     show([event, menulist]) {
+      clearTimeout(this._hide_timeOut);
       const { detail } = event;
       menulist.map((val, index) => {
         this['yrobot_menufunc' + index] = val.func;
@@ -57,7 +58,7 @@ Component({
       this.setData({
         _floatMenuOn: true,
       }, () => {
-        setTimeout(() => {
+        this._show_timeOut = setTimeout(() => {
           this.setData({
             animation: animation.export()
           })
@@ -65,6 +66,7 @@ Component({
       })
     },
     hide() {
+      clearTimeout(this._show_timeOut);
       this.selectComponent('#yrobot_float_menu_popup').hideBG();
       let duration = 200;
       var animation = wx.createAnimation({
@@ -77,7 +79,7 @@ Component({
       this.setData({
         animation: animation.export()
       }, () => {
-        setTimeout(() => {
+        this._hide_timeOut = setTimeout(() => {
           this.setData({
             _floatMenuOn: false,
           })

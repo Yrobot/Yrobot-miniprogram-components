@@ -1,0 +1,38 @@
+@checkedColor: var(--color-second, #F58E27);
+
+.Yrobot-switch {
+    position: relative;
+    width: 100rpx;
+    height: 60rpx;
+    border: 1rpx solid #dfdfdf;
+    box-sizing: content-box;
+    background-color: #fdfdfd;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: 30rpx;
+    overflow: visible;
+    transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+
+    .inner {
+        position: absolute;
+        width: 60rpx;
+        height: 60rpx;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0 1rpx 3rpx rgba(0, 0, 0, 0.4);
+        border: 0;
+    }
+
+}
+
+.on {
+    border-color: @checkedColor;
+    box-shadow: @checkedColor 0 0 0 16rpx inset;
+    background-color: @checkedColor;
+
+    .inner {
+        left: auto;
+        right: 0rpx;
+    }
+}

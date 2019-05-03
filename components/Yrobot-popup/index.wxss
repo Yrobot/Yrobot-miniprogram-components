@@ -1,5 +1,6 @@
 .popupHolder{ 
-  /* Zindex为auto在Zindex=1之下，不会覆盖内容层 */
+  /* Zindex为auto在Zindex=1之下，不会覆盖内容层 */ 
+  /* 是否可以不用position，直接设置height0；width100%；从而去除holder对被遮蔽元素的影响 */
   position: absolute; 
   left: 0;
   top: 0;

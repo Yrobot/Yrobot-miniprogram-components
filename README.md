@@ -256,3 +256,11 @@ value： filter结果，Array类型
 
 - closeFilter: undefined
 ```
+
+
+
+## 12. Yrobot-switch : 自定义switch
+相对于官方的switch，本switch可以自定义大小和动画效果，以及变动钩子  
+并且已经适配小程序form表单提交，可以和用官方switch一样使用本switch  
+width和height通过props传入（单位：rpx）  
+主色调通过修改less文件或者在app.wxss里添加css变量--color-second来修改switch颜色    
