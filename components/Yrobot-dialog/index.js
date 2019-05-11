@@ -21,11 +21,21 @@ Component({
       type: String,
       value: '#ffffff'
     },
+    // 圆角
+    borderRadius: {
+      type: String,
+      value: '0rpx'
+    },
     // 点击button区域自动调用hide()
     autoClose: {
       type: Boolean,
       value: true
-    }
+    },
+    // 控制自带的buttonArea是否显示
+    buttonAreaOn: {
+      type: Boolean,
+      value: true
+    },
   },
 
   /**
@@ -34,6 +44,8 @@ Component({
   data: {
     dialogAnimation: {},
     _dialogOn: false,
+    title: "",
+    conform: "",
   },
 
   /**
@@ -42,7 +54,14 @@ Component({
   ready() {
   },
   methods: {
-    show() {
+    show(param) {
+      const { title, content, conform, cancel } = param;
+      this._conform = conform || function () { };
+      this._cancel = cancel || function () { };
+      this.setData({
+        title: title || "",
+        content: content || "",
+      });
       clearTimeout(this._hide_timeOut);
       this.selectComponent('#_YrobotDialog_popup').showBG();
       var animation = wx.createAnimation({
@@ -77,12 +96,16 @@ Component({
         this._hide_timeOut = setTimeout(() => {
           this.setData({
             _dialogOn: false,
+            title: "",
+            content: "",
           })
+          this._conform = function () { };
+          this._cancel = function () { };
         }, duration);
       })
     },
-    tryClose(){
-      if (this.data.autoClose){
+    tryClose() {
+      if (this.data.autoClose) {
         this.hide();
       }
     }

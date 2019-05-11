@@ -1,16 +1,22 @@
 <!-- Yrobot-toast/Yrobot-toast.wxml -->
 <popup-view bottom="50%" id="_YrobotDialog_popup" bind:coverClose="{{coverClose?'hide':''}}">
-  <view class="Yrobotdialog" style="display:{{_dialogOn?'block':'none'}};background-color:{{BGColor}};" animation="{{dialogAnimation}}" slot="float">
+  <view class="Yrobotdialog" style="display:{{_dialogOn?'block':'none'}};background-color:{{BGColor}};border-radius:{{borderRadius}};" animation="{{dialogAnimation}}" slot="float">
     <view class="infoBox">
       <view class="titleBox">
-        <slot name="title"></slot>
+        <slot name="title" wx:if="{{!title}}"></slot>
+        <view class="title" wx:if="{{title}}">{{title}}</view>
       </view>
       <view class="contentBox">
-        <slot name="content"></slot>
+        <slot name="content" wx:if="{{!content}}"></slot>
+        <view class="content" wx:if="{{content}}">{{content}}</view>
       </view>
     </view>
     <view class="buttonArea" catch:tap="tryClose">
       <slot name="button"></slot>
+      <view class="button-holder" wx:if="{{buttonAreaOn}}">
+        <view class="button" bind:tap="_cancel">取消</view>
+        <view class="button conform" bind:tap="_conform">确认</view>
+      </view>
     </view>
   </view>
 </popup-view>

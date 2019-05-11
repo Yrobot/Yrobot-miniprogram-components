@@ -15,13 +15,55 @@
   font-weight: bold;
   text-align: center;
 }
+.Yrobotdialog .infoBox .titleBox .title {
+  width: 100%;
+  text-align: center;
+  font-size: var(--size-font-first, 34rpx);
+  font-weight: bold;
+}
 .Yrobotdialog .infoBox .contentBox {
   width: 100%;
   font-size: 1.0em;
   font-weight: normal;
   text-align: center;
 }
+.Yrobotdialog .infoBox .contentBox .content {
+  width: 100%;
+  padding-top: 20rpx;
+  text-align: center;
+  font-size: var(--size-font-second, 30rpx);
+}
 .Yrobotdialog .buttonArea {
   width: 100%;
   position: relative;
+}
+.Yrobotdialog .buttonArea .button-holder {
+  position: relative;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: var(--size-font-first, 34rpx);
+  font-weight: bold;
+  color: var(--color-font-first, #2c2c2c);
+  display: flex;
+  flex-direction: row;
+}
+.Yrobotdialog .buttonArea .button-holder .button {
+  flex: auto;
+  height: 100%;
+}
+.Yrobotdialog .buttonArea .button-holder .conform {
+  color: var(--color-second, #F58E27);
+}
+.Yrobotdialog .buttonArea .button-holder:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #707070;
+  transform-origin: top;
+  transform: scaleY(0.2);
 }
