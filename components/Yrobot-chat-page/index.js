@@ -9,9 +9,9 @@ const maxScroll = 99999;
 
 Component({
   options: {
-    multipleSlots: true 
+    multipleSlots: true
   },
-  
+
   properties: { //钩子函数：suitKeyBoard()
     setStatus: {
       type: Object,
@@ -51,6 +51,18 @@ Component({
             }
           })
       }
+    },
+    deviation: {
+      type: Number,
+      value: 10,
+    },
+    scrollFunc: {
+      type: Object,
+      value: {
+        "bindscroll": () => { },
+        "bindscrolltolower": () => { },
+        "bindscrolltoupper": () => { },
+      },
     },
   },
 
@@ -96,6 +108,28 @@ Component({
       this.setData({
         _scrollTop: top,
       })
+    },
+    __bindscroll(e) {
+      const { bindscrolltoupper, bindscroll, bindscrolltolower } = this.data.scrollFunc;
+      bindscroll(e);
+      const { scrollTop, scrollHeight } = e.detail;
+      const { deviation } = this.data;
+      if (scrollTop < deviation) {
+        if (!this._top_on) {
+          this._top_on = true;
+          bindscrolltoupper();
+        }
+      } else {
+        this._top_on = false;
+      }
+      if ((scrollHeight - scrollTop - this._fullScrollHeight) < deviation) {
+        if (!this._bottom_on) {
+          this._bottom_on = true;
+          bindscrolltolower();
+        }
+      } else {
+        this._bottom_on = false;
+      }
     },
   }
 })

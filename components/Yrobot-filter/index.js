@@ -2,20 +2,6 @@
 // Yrobot设计实现filter组件，实现按步骤进行选择的筛选栏
 // 时间：2019年4月17日 18:28:51
 
-Array.prototype.equals = (a, b) => {
-  if (!a || !b) return false;
-  if (a.length !== b.length) {
-    return false
-  } else {
-    for (let i = 0; i < a.length; i++) {
-      if (a[i] !== b[i]) {
-        return false
-      }
-    }
-    return true;
-  }
-};
-
 const { windowWidth, windowHeight } = wx.getSystemInfoSync();
 
 const maxHeight = windowHeight * 0.65;
@@ -299,7 +285,7 @@ Component({
         });
         if (this.isfinish(result)) {
           this.triggerEvent('filterTrigger', {
-            value: [].equals(this._result_list, this._pre_value) ? undefined : this._result_list,
+            value: this._result_list,
             type: this._result_type,
           }, {});
           this.hide();

@@ -54,7 +54,7 @@ Component({
   ready() {
   },
   methods: {
-    show(param) {
+    show(param={}) {
       const { title, content, conform, cancel } = param;
       this._conform = conform || function () { };
       this._cancel = cancel || function () { };
